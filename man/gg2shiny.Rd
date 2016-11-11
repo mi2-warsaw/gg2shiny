@@ -4,10 +4,10 @@
 \alias{gg2shiny}
 \title{Converts ggplot2 plots into a shiny application}
 \usage{
-gg2shiny(ggplot)
+gg2shiny(ggplotobj)
 }
 \arguments{
-\item{ggplot}{the plot to be exported}
+\item{ggplotobj}{the plot to be exported}
 }
 \description{
 Converts ggplot2 plots into a shiny application

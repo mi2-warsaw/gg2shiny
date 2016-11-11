@@ -1,22 +1,27 @@
 #' Converts ggplot2 plots into a shiny application
 #'
-#' @param ggplot the plot to be exported
+#' @param ggplotobj the plot to be exported
 #' @import shiny
+#' @import graphics
 #' @import ggplot2
 #' @export
-gg2shiny <- function(ggplot) {
+gg2shiny <- function(ggplotobj) {
+  ggobj <- ggplotobj
 
   shinyApp(
     ui = fluidPage(
       sidebarLayout(
-        sidebarPanel(sliderInput("n", "Bins", 5, 100, 20)),
-        mainPanel(plotOutput("plot"))
+        mainPanel(plotOutput("plot"), verbatimTextOutput("desc"))
       )
     ),
     server = function(input, output) {
       output$plot <- renderPlot(
-        ggplot2::plot(ggplot)
+        plot(ggobj)
+      )
+      output$desc <- renderPlot(
+        summary(ggobj)
       )
     }
   )
+
 }

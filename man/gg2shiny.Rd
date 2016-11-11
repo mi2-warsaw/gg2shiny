@@ -12,4 +12,12 @@ gg2shiny(ggplotobj)
 \description{
 Converts ggplot2 plots into a shiny application
 }
+\examples{
+\dontrun{
+library(gg2shiny)
+library(ggplot2)
+pl <- ggplot(iris, aes(Sepal.Length, Petal.Length))+geom_point()
+gg2shiny(pl)
+}
+}
 

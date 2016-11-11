@@ -4,6 +4,13 @@
 #' @import shiny
 #' @import graphics
 #' @import ggplot2
+#' @examples
+#' \dontrun{
+#' library(gg2shiny)
+#' library(ggplot2)
+#' pl <- ggplot(iris, aes(Sepal.Length, Petal.Length))+geom_point()
+#' gg2shiny(pl)
+#' }
 #' @export
 gg2shiny <- function(ggplotobj) {
   ggobj <- ggplotobj
@@ -11,6 +18,7 @@ gg2shiny <- function(ggplotobj) {
   shinyApp(
     ui = fluidPage(
       sidebarLayout(
+        sidebarPanel(p(".")),
         mainPanel(plotOutput("plot"), verbatimTextOutput("desc"))
       )
     ),
